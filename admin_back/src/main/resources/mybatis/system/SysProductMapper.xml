@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nofantasy.project.system.mapper.SysProductMapper">
+    
+    <resultMap type="SysProduct" id="SysProductResult">
+        <result property="id"    column="id"    />
+        <result property="img"    column="img"    />
+        <result property="name"    column="name"    />
+        <result property="descript"    column="descript"    />
+        <result property="needJf"    column="need_jf"    />
+    </resultMap>
+
+    <sql id="selectSysProductVo">
+        select id, img, name, descript, need_jf from sys_product
+    </sql>
+
+    <select id="selectSysProductList" parameterType="SysProduct" resultMap="SysProductResult">
+        <include refid="selectSysProductVo"/>
+        <where>  
+            <if test="img != null  and img != ''"> and img = #{img}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="descript != null  and descript != ''"> and descript = #{descript}</if>
+            <if test="needJf != null  and needJf != ''"> and need_jf = #{needJf}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysProductById" parameterType="Long" resultMap="SysProductResult">
+        <include refid="selectSysProductVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSysProduct" parameterType="SysProduct" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="img != null and img != ''">img,</if>
+            <if test="name != null">name,</if>
+            <if test="descript != null">descript,</if>
+            <if test="needJf != null">need_jf,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="img != null and img != ''">#{img},</if>
+            <if test="name != null">#{name},</if>
+            <if test="descript != null">#{descript},</if>
+            <if test="needJf != null">#{needJf},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysProduct" parameterType="SysProduct">
+        update sys_product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="img != null and img != ''">img = #{img},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="descript != null">descript = #{descript},</if>
+            <if test="needJf != null">need_jf = #{needJf},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysProductById" parameterType="Long">
+        delete from sys_product where id = #{id}
+    </delete>
+
+    <delete id="deleteSysProductByIds" parameterType="String">
+        delete from sys_product where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

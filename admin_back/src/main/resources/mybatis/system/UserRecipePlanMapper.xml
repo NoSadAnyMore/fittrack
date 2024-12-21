@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nofantasy.project.system.mapper.UserRecipePlanMapper">
+    
+    <resultMap type="UserRecipePlan" id="UserRecipePlanResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="type"    column="type"    />
+        <result property="name"    column="name"    />
+        <result property="description"    column="description"    />
+        <result property="image"    column="image"    />
+    </resultMap>
+
+    <sql id="selectUserRecipePlanVo">
+        select id, user_id, type, name, description, image from user_recipe_plan
+    </sql>
+
+    <select id="selectUserRecipePlanList" parameterType="UserRecipePlan" resultMap="UserRecipePlanResult">
+        <include refid="selectUserRecipePlanVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserRecipePlanById" parameterType="Long" resultMap="UserRecipePlanResult">
+        <include refid="selectUserRecipePlanVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertUserRecipePlan" parameterType="UserRecipePlan" useGeneratedKeys="true" keyProperty="id">
+        insert into user_recipe_plan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="type != null and type != ''">type,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="description != null">description,</if>
+            <if test="image != null">image,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="type != null and type != ''">#{type},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="description != null">#{description},</if>
+            <if test="image != null">#{image},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUserRecipePlan" parameterType="UserRecipePlan">
+        update user_recipe_plan
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="image != null">image = #{image},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserRecipePlanById" parameterType="Long">
+        delete from user_recipe_plan where id = #{id}
+    </delete>
+
+    <delete id="deleteUserRecipePlanByIds" parameterType="String">
+        delete from user_recipe_plan where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

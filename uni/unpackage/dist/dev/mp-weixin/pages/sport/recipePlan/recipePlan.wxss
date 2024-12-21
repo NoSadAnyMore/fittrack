@@ -1,0 +1,82 @@
+
+.container.data-v-9da64e6a {
+  padding: 20px;
+}
+.header.data-v-9da64e6a {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.title.data-v-9da64e6a {
+  font-size: 24px;
+  font-weight: bold;
+}
+.section-title.data-v-9da64e6a {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.recipe-list.data-v-9da64e6a, .plan-list.data-v-9da64e6a {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe-item.data-v-9da64e6a, .plan-item.data-v-9da64e6a {
+  width: 48%;
+  margin: 10px 1%;
+  display: flex;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.recipe-image.data-v-9da64e6a, .plan-image.data-v-9da64e6a {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.recipe-info.data-v-9da64e6a, .plan-info.data-v-9da64e6a {
+  flex: 1;
+}
+.recipe-name.data-v-9da64e6a, .plan-name.data-v-9da64e6a {
+  font-size: 16px;
+  font-weight: bold;
+}
+.recipe-description.data-v-9da64e6a, .plan-description.data-v-9da64e6a {
+  font-size: 14px;
+  color: #666;
+}
+.add-button.data-v-9da64e6a {
+  margin-top: 10px;
+  background-color: #3b8d99;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+}
+.picker.data-v-9da64e6a {
+  background-color: #f0f0f0;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.add-recipe-button.data-v-9da64e6a {
+  width: 100%;
+  background-color: #3b8d99;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.plan-category.data-v-9da64e6a {
+  margin-top: 20px;
+}
+.meal-time-title.data-v-9da64e6a {
+  font-size: 18px;
+  font-weight: bold;
+}
+.plan-list.data-v-9da64e6a {
+  display: flex;
+  flex-wrap: wrap;
+}
+

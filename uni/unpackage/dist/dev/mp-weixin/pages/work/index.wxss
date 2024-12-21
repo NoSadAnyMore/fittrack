@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/**
+ * uni-app内置的常用样式变量
+ */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.page.data-v-51b5538d {
+  padding: 0 32rpx;
+  color: #333;
+}
+.conList.data-v-51b5538d {
+  width: 100%;
+  display: flex;
+}
+.list-item.data-v-51b5538d {
+  width: 100%;
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #ccced3;
+}
+.list-item .avatar.data-v-51b5538d {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  position: relative;
+}
+.list-item .avatar .round.data-v-51b5538d {
+  position: absolute;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #ef5656;
+  top: -4rpx;
+  right: -4rpx;
+  z-index: 1;
+}
+.list-item .avatar image.data-v-51b5538d {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.list-item .content.data-v-51b5538d {
+  flex: 1;
+}
+.list-item .content .title.data-v-51b5538d {
+  display: flex;
+  justify-content: space-between;
+}
+.list-item .content .title .name.data-v-51b5538d {
+  font-weight: bold;
+}
+.list-item .content .title .time.data-v-51b5538d {
+  color: #999;
+  font-size: 24rpx;
+}
+.list-item .content .txt.data-v-51b5538d {
+  margin-top: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-align: left;
+  color: #999;
+  font-size: 26rpx;
+}
+.swipBox.data-v-51b5538d {
+  width: 210rpx;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+}
+.swipBox .swipBox-item.data-v-51b5538d {
+  flex: 1;
+  height: 100%;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

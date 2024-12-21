@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nofantasy.project.system.mapper.UserJfProRecordMapper">
+    
+    <resultMap type="UserJfProRecord" id="UserJfProRecordResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="xhJf"    column="xh_jf"    />
+        <result property="proId"    column="pro_id"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectUserJfProRecordVo">
+        select id, user_id, xh_jf, pro_id, create_time from user_jf_pro_record
+    </sql>
+
+    <select id="selectUserJfProRecordList" parameterType="UserJfProRecord" resultMap="UserJfProRecordResult">
+        <include refid="selectUserJfProRecordVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="xhJf != null  and xhJf != ''"> and xh_jf = #{xhJf}</if>
+            <if test="proId != null "> and pro_id = #{proId}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserJfProRecordById" parameterType="Long" resultMap="UserJfProRecordResult">
+        <include refid="selectUserJfProRecordVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertUserJfProRecord" parameterType="UserJfProRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into user_jf_pro_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="xhJf != null">xh_jf,</if>
+            <if test="proId != null">pro_id,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="xhJf != null">#{xhJf},</if>
+            <if test="proId != null">#{proId},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUserJfProRecord" parameterType="UserJfProRecord">
+        update user_jf_pro_record
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="xhJf != null">xh_jf = #{xhJf},</if>
+            <if test="proId != null">pro_id = #{proId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserJfProRecordById" parameterType="Long">
+        delete from user_jf_pro_record where id = #{id}
+    </delete>
+
+    <delete id="deleteUserJfProRecordByIds" parameterType="String">
+        delete from user_jf_pro_record where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

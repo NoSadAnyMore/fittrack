@@ -1,0 +1,110 @@
+# 项目相关配置
+nofantasy:
+  name: Hell
+  version: 3.8.8
+  copyrightYear: 2024
+  profile: D:/nofantasy/uploadPath
+  addressEnabled: false
+  captchaType: math
+  appId: wxd0e90f402b10089e
+  appSecret: 5d601762261b8e0b5d7837b69aa6b11b
+
+# 开发环境配置
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    accept-count: 1000
+    threads:
+      max: 800
+      min-spare: 100
+
+# 日志配置
+logging:
+  level:
+    com.nofantasy: debug
+    org.springframework: warn
+
+# 用户配置
+user:
+  password:
+    maxRetryCount: 5
+    lockTime: 10
+
+# Spring配置
+spring:
+  messages:
+    basename: i18n/messages
+  profiles:
+    active: druid
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  # redis 配置
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password:
+    timeout: 10s
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+
+# token配置
+token:
+  header: Authorization
+  secret: abcdefghijklmnopqrstuvwxyz
+  expireTime: 30
+  
+# MyBatis配置
+mybatis:
+  typeAliasesPackage: com.nofantasy.project.**.domain
+  mapperLocations: classpath*:mybatis/**/*Mapper.xml
+  configLocation: classpath:mybatis/mybatis-config.xml
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+  params: count=countSql
+
+# Swagger配置
+swagger:
+  # 是否开启swagger
+  enabled: true
+  # 请求前缀
+  pathMapping: /dev-api
+
+# 防止XSS攻击
+xss:
+  # 过滤开关
+  enabled: true
+  # 排除链接（多个用逗号分隔）
+  excludes: /system/notice
+  # 匹配链接
+  urlPatterns: /system/*,/monitor/*,/tool/*
+wx-app:
+  appId: wxd0e90f402b10089e
+  appSecret: 5d601762261b8e0b5d7837b69aa6b11b
+# 代码生成
+gen:
+  # 作者
+  author: nofantasy
+  # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
+  packageName: com.nofantasy.project.system
+  # 自动去除表前缀，默认是true
+  autoRemovePre: false
+  # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
+  tablePrefix: sys_

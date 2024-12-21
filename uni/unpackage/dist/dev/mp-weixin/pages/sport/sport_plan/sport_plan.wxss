@@ -1,0 +1,147 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 页面容器 */
+.container.data-v-74301eaa {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+/* 表单布局 */
+.form.data-v-74301eaa {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* 输入项 */
+.input-item.data-v-74301eaa {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.label.data-v-74301eaa {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.input.data-v-74301eaa {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  height: 100rpx;
+}
+.picker.data-v-74301eaa {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-size: 14px;
+}
+/* 提交按钮 */
+.submit-btn.data-v-74301eaa {
+  margin-top: 20px;
+}
+.submit.data-v-74301eaa {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.submit.data-v-74301eaa:hover {
+  background-color: #0056b3;
+}
+/* 输入框聚焦效果 */
+.input.data-v-74301eaa:focus, .picker.data-v-74301eaa:focus {
+  border-color: #007bff;
+  outline: none;
+}
+/* 按钮点击反馈 */
+button.data-v-74301eaa:active {
+  opacity: 0.8;
+}
+

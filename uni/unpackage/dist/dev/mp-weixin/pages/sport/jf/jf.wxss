@@ -1,0 +1,34 @@
+
+.container.data-v-582e1aaa {
+	padding: 20rpx;
+}
+.goods-list.data-v-582e1aaa {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.goods-item.data-v-582e1aaa {
+	width: 50%;
+	margin-bottom: 20rpx;
+}
+.goods-card .uni-card-header.data-v-582e1aaa {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.goods-info.data-v-582e1aaa {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.goods-points.data-v-582e1aaa {
+	font-size: 24rpx;
+	color: #666;
+	margin-bottom: 10rpx;
+}
+.redeem-btn.data-v-582e1aaa {
+	width: 80%;
+	font-size: 28rpx;
+}
+
